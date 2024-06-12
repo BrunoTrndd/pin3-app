@@ -52,3 +52,14 @@ h1 {
 .custom-button:hover {
   background-color: #333;
 }
+
+.image-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+}
