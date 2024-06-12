@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import UploadBox from './components/uploadBox';
 import UploadButton from './components/uploadButton';
+import './style/App.css';
 
 function App() {
   const [file, setFile] = useState(null);
@@ -32,24 +33,27 @@ function App() {
     }
   };
 
-  const data = {
-    labels: chartData ? chartData.labels : [],
-    datasets: [
-      {
-        label: 'Dataset',
-        data: chartData ? chartData.values : [],
-        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-        borderColor: 'rgba(75, 192, 192, 1)',
-        borderWidth: 1,
-      },
-    ],
+  const handleClassification = () => {
+    console.log('Classification button clicked');
+    // Adicione a lógica para o botão de Classificação aqui
+  };
+
+  const handleGrouping = () => {
+    console.log('Grouping button clicked');
+    // Adicione a lógica para o botão de Agrupamento aqui
   };
 
   return (
     <div className="App">
       <h1>Upload File and Display Chart</h1>
-      <UploadBox onDrop={handleDrop} />
-      <UploadButton onClick={handleUpload} />
+      <div className="content">
+        <UploadBox onDrop={handleDrop} />
+        <div className="buttons">
+          <UploadButton text="Classificação" onClick={handleClassification} />
+          <UploadButton text="Agrupamento" onClick={handleGrouping} />
+          <UploadButton text="Upload" onClick={handleUpload} />
+        </div>
+      </div>
     </div>
   );
 }
